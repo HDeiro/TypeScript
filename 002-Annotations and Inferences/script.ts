@@ -16,3 +16,16 @@ var variable : number;
  * - null      -> var variable:null;
  * - undefined -> var variable:undefined;
  */
+
+//##########################
+// INFERENCES 
+//##########################
+
+//It's possible to infer the type of a variable through the assigned value
+var variable = 10;
+
+//When you try to assign two different kinds the value is casted 
+var variable = 10 + 'test'; //It concat 10 and 'test' to 10test (string)
+
+//It does not work because you told to TS the type of variable would be number, but the assigned value isn't
+var variable:number = 10 + 'test'; //WRONG!!!!!!
