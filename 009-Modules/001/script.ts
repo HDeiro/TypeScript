@@ -3,9 +3,9 @@
  * wrapped code for security and access control. You can define wich
  * things will be visible through the namespace using the keyword export.
  */
-namespace Shapes {
+module Shapes {
     //private interface, visible only in Shapes internal scope
-    interface Dimension {
+    export interface Dimension {
         h : number,
         w ?: number
     }
@@ -14,9 +14,7 @@ namespace Shapes {
     export class Rectangle {
         constructor(public dimension:Dimension) {}
 
-        calcArea = ():number => {
-            return this.dimension.h * (this.dimension.w || this.dimension.h);
-        }
+        calcArea = ():number => this.dimension.h * (this.dimension.w || this.dimension.h);
     }
 }
 
