@@ -16,6 +16,10 @@
  * are '.ts', '.tsx', '.d.ts'.
  * 
  * I believe it does not happens with the *.js because it's de generated value
+ * 
+ * When you need to use the *.d.ts files you need to refer it on top of document. For example:
+ * 
+ * // <reference path="jquery-1.8.d.ts" />
  ************************************/
 
 window.onload = () => {
