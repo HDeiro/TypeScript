@@ -1,3 +1,5 @@
+/// <reference path="../001/script.ts" />
+
 /**
  * It's possible to extend the namespace appending new classes 
  * or interfaces. But, to use a resource described in last declaration
