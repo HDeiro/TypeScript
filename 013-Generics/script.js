@@ -66,3 +66,31 @@ catalog.addItem(new Book("Book 2"));
 catalog.addItem(new Book("Book 3"));
 console.log(catalog.getNewestItem().name);
 console.log(catalog.getAllItems());
+//This will only let i Add Items that extends of CatalogItem
+var ItemsCatalog = (function () {
+    function ItemsCatalog() {
+        this.items = new Array();
+    }
+    ItemsCatalog.prototype.addItem = function (newItem) {
+        this.items.push(newItem);
+    };
+    ItemsCatalog.prototype.getNewestItem = function () {
+        return this.items[this.items.length - 1];
+    };
+    ItemsCatalog.prototype.getAllItems = function () {
+        return this.items;
+    };
+    return ItemsCatalog;
+}());
+var Item = (function () {
+    function Item(catalogNumber) {
+        this.catalogNumber = catalogNumber;
+    }
+    return Item;
+}());
+var items = new ItemsCatalog();
+items.addItem(new Item(1));
+items.addItem(new Item(2));
+items.addItem(new Item(3));
+console.log(items.getNewestItem().catalogNumber);
+console.log(items.getAllItems());

@@ -74,3 +74,43 @@ catalog.addItem(new Book("Book 3"));
 
 console.log(catalog.getNewestItem().name);
 console.log(catalog.getAllItems());
+
+//THIRD EXAMPLE
+
+/**
+ * It's possible to define constraints to specify the possible types to 
+ * be added in a generic class, function or interface.
+ */
+interface CatalogItem {
+    catalogNumber:number;
+}
+
+//This will only let i Add Items that extends of CatalogItem
+class ItemsCatalog<T extends CatalogItem> implements Inventory<T> {
+    private items = new Array<T>();
+
+    addItem(newItem:T) {
+        this.items.push(newItem);
+    }
+
+    getNewestItem() {
+        return this.items[this.items.length - 1];
+    }
+
+    getAllItems() {
+        return this.items;
+    }
+}
+
+class Item implements CatalogItem {
+    constructor(public catalogNumber:number) {}
+}
+
+let items = new ItemsCatalog<Item>();
+
+items.addItem(new Item(1));
+items.addItem(new Item(2));
+items.addItem(new Item(3));
+
+console.log(items.getNewestItem().catalogNumber);
+console.log(items.getAllItems());
