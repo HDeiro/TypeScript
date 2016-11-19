@@ -35,5 +35,34 @@ function doThing(thing) {
         console.log(thing.execute());
     }
 }
+//I can call that way
 doThing(new Class1("class 1"));
+//or that way (the function infers the type through the param)
 doThing(new Class2("class 2"));
+var Catalog = (function () {
+    function Catalog() {
+        this.items = new Array();
+    }
+    Catalog.prototype.addItem = function (newItem) {
+        this.items.push(newItem);
+    };
+    Catalog.prototype.getNewestItem = function () {
+        return this.items[this.items.length - 1];
+    };
+    Catalog.prototype.getAllItems = function () {
+        return this.items;
+    };
+    return Catalog;
+}());
+var Book = (function () {
+    function Book(name) {
+        this.name = name;
+    }
+    return Book;
+}());
+var catalog = new Catalog();
+catalog.addItem(new Book("Book 1"));
+catalog.addItem(new Book("Book 2"));
+catalog.addItem(new Book("Book 3"));
+console.log(catalog.getNewestItem().name);
+console.log(catalog.getAllItems());
