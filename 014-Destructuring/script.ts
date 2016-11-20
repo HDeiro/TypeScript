@@ -25,3 +25,32 @@ console.log('[Arrays] OLD FASHIONED WAY ->', bronze, silver, gold);
 let [third, second, first] = medals;
 
 console.log('[Arrays] NEW FASHIONED WAY ->',third, second, first);
+
+//*****************************************
+// WITH OBJECTS
+//*****************************************
+
+let car = {
+    model: 'Ferrari',
+    age: 2016
+}
+
+//you can get properties like this:
+
+let old_mode1_model = car.model;
+let old_mode1_age = car.age;
+
+console.log('[Objects] OLD FASHIONED WAY (Mode 1) -> ', old_mode1_model, old_mode1_age);
+
+//Or like this
+
+let old_mode2_model = car['model'];
+let old_mode2_age = car['age'];
+
+console.log('[Objects] OLD FASHIONED WAY (Mode 2) -> ', old_mode2_model, old_mode2_age);
+
+//But, nowadays, you can do something like this:
+
+let {model, age} = car; //The variables names should match with the properties of the object
+
+console.log('[Objects] NEW FASHIONED WAY -> ', model, age);
