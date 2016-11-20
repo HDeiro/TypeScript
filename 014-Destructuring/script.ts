@@ -32,25 +32,30 @@ console.log('[Arrays] NEW FASHIONED WAY ->',third, second, first);
 
 let car = {
     model: 'Ferrari',
-    age: 2016
+    year: 2016
 }
 
 //you can get properties like this:
 
 let old_mode1_model = car.model;
-let old_mode1_age = car.age;
+let old_mode1_year = car.year;
 
-console.log('[Objects] OLD FASHIONED WAY (Mode 1) -> ', old_mode1_model, old_mode1_age);
+console.log('[Objects] OLD FASHIONED WAY (Mode 1) -> ', old_mode1_model, old_mode1_year);
 
 //Or like this
 
 let old_mode2_model = car['model'];
-let old_mode2_age = car['age'];
+let old_mode2_year = car['year'];
 
-console.log('[Objects] OLD FASHIONED WAY (Mode 2) -> ', old_mode2_model, old_mode2_age);
+console.log('[Objects] OLD FASHIONED WAY (Mode 2) -> ', old_mode2_model, old_mode2_year);
 
 //But, nowadays, you can do something like this:
 
-let {model, age} = car; //The variables names should match with the properties of the object
+let {model, year} = car; //The variables names should match with the properties of the object
 
-console.log('[Objects] NEW FASHIONED WAY -> ', model, age);
+console.log('[Objects] NEW FASHIONED WAY -> ', model, year);
+
+//And you can also do something like this
+
+let {model:car_model, year:car_year} = car;
+console.log('[Objects] NEW FASHIONED WAY (Custom variables) -> ', car_model, car_year);

@@ -20,17 +20,21 @@ console.log('[Arrays] NEW FASHIONED WAY ->', third, second, first);
 //*****************************************
 // WITH OBJECTS
 //*****************************************
-var person = {
-    name: 'Hugo',
-    age: new Date().getFullYear() - 1992
+var car = {
+    model: 'Ferrari',
+    year: 2016
 };
 //you can get properties like this:
-var old_mode1_name = person.name;
-var old_mode1_age = person.age;
-console.log('[Objects] OLD FASHIONED WAY (Mode 1) -> ', old_mode1_name, old_mode1_age);
+var old_mode1_model = car.model;
+var old_mode1_year = car.year;
+console.log('[Objects] OLD FASHIONED WAY (Mode 1) -> ', old_mode1_model, old_mode1_year);
 //Or like this
-var old_mode2_name = person['name'];
-var old_mode2_age = person['age'];
-console.log('[Objects] OLD FASHIONED WAY (Mode 2) -> ', old_mode2_name, old_mode2_age);
+var old_mode2_model = car['model'];
+var old_mode2_year = car['year'];
+console.log('[Objects] OLD FASHIONED WAY (Mode 2) -> ', old_mode2_model, old_mode2_year);
 //But, nowadays, you can do something like this:
-var name = person.name, age = person.age;
+var model = car.model, year = car.year; //The variables names should match with the properties of the object
+console.log('[Objects] NEW FASHIONED WAY -> ', model, year);
+//And you can also do something like this
+var car_model = car.model, car_year = car.year;
+console.log('[Objects] NEW FASHIONED WAY (Custom variables) -> ', car_model, car_year);
