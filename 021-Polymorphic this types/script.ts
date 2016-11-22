@@ -31,4 +31,35 @@ console.log(truck.Drive().constructor);
 
 /**
  * That concludes, the "this" is relative to the context
+ * 
+ * A practical example could be the Library, when you have
+ * such kinds of books that has different procedures for checkin
+ * and checkout. For example, a ChildBook should be cleaned because
+ * of the probabilty of some mess from cranyons, pencils and things like that.
  */
+
+class Book {
+    constructor(public name:string) {}
+
+    checkIn = ():this => {
+        console.log(`check in of ${this.name} book`);
+        return this;
+    }
+    
+    checkOut = ():this => {
+        console.log(`check out of ${this.name} book`);
+        return this;
+    }
+}
+
+class ChildBook extends Book {
+    cleanTheMess = ():this => {
+        console.log(`cleaning the mess in the book ${this.name}`);
+        return this;
+    }
+}
+
+let childBook = new ChildBook("O pequeno príncipe");
+
+//Using polymorphic this type you can build a fluent API that can chain method invocations
+childBook.checkOut().cleanTheMess().checkOut();
