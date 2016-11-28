@@ -10,7 +10,7 @@
  * In JavaScript is possible do this using:
  * 
  * Callback Functions
- * Promisses
+ * Promises
  * Async and await.
  */
 
@@ -31,3 +31,38 @@ function secondFunction() {
 
 firstFunction();
 firstFunction(secondFunction);
+
+/**
+ * Promises
+ * 
+ * The Promise object is used for asynchronous computations.
+ * A Promise represents a value which may be available now, or
+ * in the future or never. 
+ * 
+ *      - Mozilla Developer Network
+ * 
+ * - Promises has native support in ES2015 (which implies in use this as 
+ * target when compiling).
+ * 
+ * - It has a simple API that has basically two methods: then and catch. 
+ * 
+ * - Promise methods may be chained together.
+ */
+
+function firstPromiseFunction():Promise<string> {
+    let p: Promise<string> = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('executing slow job');
+        }, 1000);
+    });
+
+    return p;
+}
+
+firstPromiseFunction()
+    .then(response => {
+        console.log('Hard work executed', response)
+        return 'chainning promisses';
+    })
+    .then(response => console.log(response))
+    .catch(reason => console.log('There are some errors '+reason));
