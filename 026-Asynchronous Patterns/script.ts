@@ -52,7 +52,11 @@ firstFunction(secondFunction);
 function firstPromiseFunction():Promise<string> {
     let p: Promise<string> = new Promise((resolve, reject) => {
         setTimeout(() => {
-            console.log('executing slow job');
+            try {
+               resolve('executing slow job');
+            } catch(err) {
+                reject('Error!');
+            }
         }, 1000);
     });
 
@@ -66,3 +70,23 @@ firstPromiseFunction()
     })
     .then(response => console.log(response))
     .catch(reason => console.log('There are some errors '+reason));
+
+/**
+ * Async / await
+ * 
+ * Allows code to be written more linearly using ES2015 (compile to ES2015!) 
+ * features like Promises, Generators, Iterators and others.
+ * 
+ * Functions that returns a Promisse are awaitable. 
+ * 
+ * async functions return a Promise of void (Promise<void>) that can be used to 
+ * catch errors.
+ */
+
+async function doAsyncWork() {
+    let results = await firstPromiseFunction();
+    console.log('Async and Await ->', results);
+}
+
+doAsyncWork()
+    .catch(reason => console.log(reason));
